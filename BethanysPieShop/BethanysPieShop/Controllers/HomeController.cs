@@ -26,7 +26,7 @@ namespace BethanysPieShop.Controllers
 
             var homeViewModel = new HomeViewModel
             {
-                Title = "Pie Overview",
+                Title = "Welcome to Bethany's Pie Shop",
                 Pies = pies.ToList()
             };
 
