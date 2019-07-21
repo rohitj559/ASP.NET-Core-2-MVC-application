@@ -17,22 +17,17 @@ namespace BethanysPieShop
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<PieRepository, MockPieRepository>();
-
             services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            app.UseDeveloperExceptionPage();
+            app.UseStatusCodePages();
+            app.UseStaticFiles();
 
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("Hello World!");
-            });
+            app.UseMvcWithDefaultRoute();
         }
     }
 }
